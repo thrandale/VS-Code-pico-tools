@@ -12,7 +12,7 @@ int main()
 
     stdio_init_all();
 
-    printf("Hello, world!");
+    printf("Hello, world!\n\n");
 
     while (true)
     {

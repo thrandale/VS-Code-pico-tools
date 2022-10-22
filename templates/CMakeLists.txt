@@ -25,8 +25,7 @@ target_link_libraries(${PROJECT_NAME}
   # Add other libraries here
 )
 
-# Add the lib subdirectory
-add_subdirectory(lib)
+# Add other subdirectories here
 
 # Enable uart output and disable usb output
 # Switch this if not using picoprobe

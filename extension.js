@@ -94,14 +94,7 @@ function initProject(path, projectName) {
 }
 
 function createClass(path, className) {
-	// Add the class name to the bottom of target_link_libraries in CMakeLists.txt
-	// Will be in the format:
-	//target_link_libraries(${PROJECT_NAME}
-	//		lib1
-	//      lib2
-	//      # Add other libraries here
-	//	    NEW_CLASS_NAME
-	//)
+	// Add the class name to target_link_libraries in CMakeLists.txt
 	let cmake = fs.readFileSync(path + '/CMakeLists.txt').toString();
 	cmake = cmake.replace(/(# Add other libraries here)/g, '$1\n\t' + className);
 	fs.writeFileSync(path + '/CMakeLists.txt', cmake);
@@ -112,6 +105,11 @@ function createClass(path, className) {
 
 		// create the CMakeLists.txt file from /templates/lib/CMakeLists.txt
 		fs.copyFileSync(__dirname + '/templates/lib/CMakeLists.txt', path + '/lib/CMakeLists.txt');
+
+		// add the lib folder to add_subdirectory in CMakeLists.txt
+		cmake = fs.readFileSync(path + '/CMakeLists.txt').toString();
+		cmake = cmake.replace(/(# Add other subdirectories here)/g, '$1\nadd_subdirectory(lib)');
+		fs.writeFileSync(path + '/CMakeLists.txt', cmake);
 	}
 	path += '/lib';
 
