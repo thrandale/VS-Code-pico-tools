@@ -1,6 +1,6 @@
-# raspberry-pi-pico-create-project README
+# pico-tools README
 
-This is the README for your extension "raspberry-pi-pico-create-project". After writing up a brief description, we recommend including the following sections.
+This is the README for your extension "pico-tools". After writing up a brief description, we recommend including the following sections.
 
 ## Features
 

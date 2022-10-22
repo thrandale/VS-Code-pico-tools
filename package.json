@@ -1,5 +1,5 @@
 {
-  "name": "raspberry-pi-pico-create-project",
+  "name": "pico-tools",
   "displayName": "Raspberry Pi Pico - Create Project",
   "description": "Creates a Project with all the required files for a Raspberry Pi Pico",
   "version": "0.0.1",
@@ -10,14 +10,21 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:raspberry-pi-pico-create-project.helloWorld"
+    "onCommand:pico-tools.initProject",
+    "onCommand:pico-tools.createClass"
   ],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
-      "command": "raspberry-pi-pico-create-project.helloWorld",
-      "title": "Hello World"
-    }]
+    "commands": [
+      {
+        "command": "pico-tools.initProject",
+        "title": "Pico: Init Project"
+      },
+      {
+        "command": "pico-tools.createClass",
+        "title": "Pico: Create Class"
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",
